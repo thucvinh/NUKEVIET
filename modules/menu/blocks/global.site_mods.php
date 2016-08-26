@@ -110,7 +110,7 @@ if (! nv_function_exists('nv_menu_site_mods')) {
                             );
                         }
                     }
-                    if ($modvalues['module_file'] == 'shops') {
+                    elseif ($modvalues['module_file'] == 'shops') {
                         $db->sqlreset()->select(NV_LANG_DATA . '_title as title, ' . NV_LANG_DATA . '_alias as alias')->from($db_config['prefix'] . '_' . $modvalues['module_data'] . '_catalogs')->where('parentid=0 AND inhome=1')->order('weight ASC')->limit(10);
                         $list = $nv_Cache->db($db->sql(), '', $modname);
                         foreach ($list as $l) {
